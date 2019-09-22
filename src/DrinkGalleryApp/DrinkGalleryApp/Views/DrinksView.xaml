@@ -6,7 +6,9 @@
              xmlns:pancakeview="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
              xmlns:behaviors="clr-namespace:DrinkGalleryApp.Behaviors"
              mc:Ignorable="d"
-             x:Class="DrinkGalleryApp.Views.DrinksView">
+             x:Class="DrinkGalleryApp.Views.DrinksView"   
+             BackgroundColor="{StaticResource WhiteColor}"
+             Title="DrinkGalleryApp">
     <ContentPage.Resources>
         <ResourceDictionary>
 
@@ -57,6 +59,7 @@
     <ContentPage.Content>
         <Grid>
             <CarouselView
+                x:Name="Carousel"
                 ItemsSource="{Binding Drinks}"
                 HeightRequest="600">
                 <CarouselView.Behaviors>
@@ -71,7 +74,8 @@
                 </CarouselView.ItemsLayout>
                 <CarouselView.ItemTemplate>
                     <DataTemplate>
-                        <Grid>
+                        <Grid
+                            WidthRequest="{Binding Source={x:Reference Carousel}, Path=Width}">
                             <Grid>
                                 <pancakeview:PancakeView 
                                     BackgroundGradientStartColor="{Binding Color}"

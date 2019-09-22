@@ -9,6 +9,11 @@ namespace DrinkGalleryApp.Models
         private double _rotation;
         private double _scale;
 
+        public CarouselItem()
+        {
+            Scale = 1;
+        }
+
         public double Position
         {
             get { return _position; }

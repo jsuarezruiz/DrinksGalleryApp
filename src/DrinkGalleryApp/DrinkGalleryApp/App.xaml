@@ -15,11 +15,14 @@
             <!-- FONTS -->
             <OnPlatform x:Key="MontserratRegular"
                         x:TypeArguments="x:String"
-                        Android="Montserrat-Regular.ttf#Montserrat"/>
+                        Android="Montserrat-Regular.ttf#Montserrat"
+                        iOS="Montserrat-Regular" />
+
 
             <OnPlatform x:Key="MontserratBold"
                         x:TypeArguments="x:String"
-                        Android="Montserrat-Bold.ttf#Montserrat"/>
+                        Android="Montserrat-Bold.ttf#Montserrat"
+                        iOS="Montserrat-Bold" />
 
         </ResourceDictionary>
     </Application.Resources>

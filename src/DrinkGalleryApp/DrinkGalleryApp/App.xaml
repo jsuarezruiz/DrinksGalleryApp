@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Application xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="DrinkGalleryApp.App">
+    <Application.Resources>
+        <ResourceDictionary>
+
+            <!-- COLORS -->
+            <Color x:Key="WhiteColor">#FFFFFF</Color>
+            <Color x:Key="BlackColor">#000000</Color>
+            
+            <!-- FONTS -->
+            <OnPlatform x:Key="MontserratRegular"
+                        x:TypeArguments="x:String"
+                        Android="Montserrat-Regular.ttf#Montserrat"/>
+
+            <OnPlatform x:Key="MontserratBold"
+                        x:TypeArguments="x:String"
+                        Android="Montserrat-Bold.ttf#Montserrat"/>
+
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

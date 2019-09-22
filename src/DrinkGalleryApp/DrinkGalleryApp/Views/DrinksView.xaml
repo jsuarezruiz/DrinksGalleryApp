@@ -1,0 +1,128 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:pancakeview="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+             xmlns:behaviors="clr-namespace:DrinkGalleryApp.Behaviors"
+             mc:Ignorable="d"
+             x:Class="DrinkGalleryApp.Views.DrinksView">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+
+            <Style x:Key="PancakeStyle" TargetType="pancakeview:PancakeView">
+                <Setter Property="CornerRadius" Value="24" />
+                <Setter Property="HasShadow" Value="True" />
+                <Setter Property="HorizontalOptions" Value="Fill" />
+                <Setter Property="Margin" Value="24, 44" />
+            </Style>
+
+            <Style TargetType="CarouselView">
+                <Setter Property="VerticalOptions" Value="CenterAndExpand" />
+            </Style>
+
+            <Style x:Key="DrinkTitleStyle" TargetType="Label">
+                <Setter Property="TextColor" Value="{StaticResource WhiteColor}" />
+                <Setter Property="FontSize" Value="24" />
+                <Setter Property="FontFamily" Value="{StaticResource MontserratBold}" />
+                <Setter Property="Margin" Value="12, 0" />
+            </Style>
+
+            <Style x:Key="DrinkDescriptionStyle" TargetType="Label" BasedOn="{StaticResource DrinkTitleStyle}">
+                <Setter Property="FontSize" Value="10" />
+                <Setter Property="FontFamily" Value="{StaticResource MontserratRegular}" />
+            </Style>
+
+            <Style x:Key="BuyButtonStyle" TargetType="Button">
+                <Setter Property="CornerRadius" Value="12" />
+                <Setter Property="HeightRequest" Value="40" />
+                <Setter Property="WidthRequest" Value="150" />
+                <Setter Property="HorizontalOptions" Value="Center" />
+                <Setter Property="VerticalOptions" Value="Center" />
+                <Setter Property="BackgroundColor" Value="{StaticResource WhiteColor}" />
+                <Setter Property="BorderWidth" Value="1" />
+                <Setter Property="FontFamily" Value="{StaticResource MontserratRegular}" />
+            </Style>
+
+            <Style x:Key="DrinkImagePanelStyle" TargetType="Grid">
+                <Setter Property="Margin" Value="36, 80, 36, 36" />
+            </Style>
+
+            <Style x:Key="DrinkImageStyle" TargetType="Image">
+                <Setter Property="Margin" Value="12" />
+            </Style>
+
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <Grid>
+            <CarouselView
+                ItemsSource="{Binding Drinks}"
+                HeightRequest="600">
+                <CarouselView.Behaviors>
+                    <behaviors:CarouselViewParallaxBehavior
+                        ParallaxOffset="200"/>
+                </CarouselView.Behaviors>
+                <CarouselView.ItemsLayout>
+                    <ListItemsLayout 
+                        Orientation="Horizontal" 
+                        SnapPointsAlignment="Center" 
+                        SnapPointsType="MandatorySingle" />
+                </CarouselView.ItemsLayout>
+                <CarouselView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid>
+                            <Grid>
+                                <pancakeview:PancakeView 
+                                    BackgroundGradientStartColor="{Binding Color}"
+                                    BackgroundGradientEndColor="{StaticResource BlackColor}"
+                                    Style="{StaticResource PancakeStyle}">
+                                    <Grid>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="*" />
+                                            <RowDefinition Height="100" />
+                                        </Grid.RowDefinitions>
+                                        <Grid
+                                            Margin="24, 48, 24, 12">
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="Auto" />
+                                                <RowDefinition Height="Auto" />
+                                                <RowDefinition Height="*" />
+                                            </Grid.RowDefinitions>
+                                            <Label 
+                                                Grid.Row="0"
+                                                Text="{Binding Title}"
+                                                Style="{StaticResource DrinkTitleStyle}"/>
+                                            <Label 
+                                                Grid.Row="1"
+                                                Text="{Binding Description}"
+                                                Style="{StaticResource DrinkDescriptionStyle}" />
+                                        </Grid>
+                                        <Grid
+                                            Grid.Row="1"
+                                            BackgroundColor="{StaticResource WhiteColor}">
+                                            <Button 
+                                                TextColor="{Binding Color}"
+                                                BorderColor="{Binding Color}"
+                                                Text="{Binding Price, StringFormat='{0:C}'}"
+                                                Style="{StaticResource BuyButtonStyle}"/>
+                                        </Grid>
+                                    </Grid>
+                                </pancakeview:PancakeView>
+                            </Grid>
+                            <Grid
+                                Style="{StaticResource DrinkImagePanelStyle}">
+                                <Image
+                                    Rotation="{Binding Rotation}"
+                                    Scale="{Binding Scale}"
+                                    TranslationX="{Binding Position}" 
+                                    Source="{Binding Image}" 
+                                    Style="{StaticResource DrinkImageStyle}"/>
+                            </Grid>
+                        </Grid>
+                    </DataTemplate>
+                </CarouselView.ItemTemplate>
+            </CarouselView>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

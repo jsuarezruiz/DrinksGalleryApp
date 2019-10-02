@@ -38,9 +38,9 @@ namespace DrinkGalleryApp.Behaviors
             var layout = carousel.ItemsLayout;
             var adjust = Device.RuntimePlatform == Device.Android ? 3 : 1;
 
-            if (layout is ListItemsLayout listItemsLayout)
+            if (layout is LinearItemsLayout linearItemsLayout)
             {
-                if (listItemsLayout.Orientation == ItemsLayoutOrientation.Horizontal)
+                if (linearItemsLayout.Orientation == ItemsLayoutOrientation.Horizontal)
                 {
                     var carouselWidth = carousel.Width;
                     var offset = (carouselWidth * (currentIndex + 1)) - (e.HorizontalOffset / adjust);
@@ -58,7 +58,7 @@ namespace DrinkGalleryApp.Behaviors
                     currentItem.Scale = scale;
                 }
 
-                if (listItemsLayout.Orientation == ItemsLayoutOrientation.Vertical)
+                if (linearItemsLayout.Orientation == ItemsLayoutOrientation.Vertical)
                 {
                     var carouselHeight = carousel.Height;
                     var offset = (carouselHeight * (currentIndex + 1)) - (e.VerticalOffset / adjust);

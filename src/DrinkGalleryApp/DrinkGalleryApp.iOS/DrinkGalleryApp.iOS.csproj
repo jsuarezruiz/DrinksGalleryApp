@@ -122,7 +122,7 @@
     <Reference Include="System.Numerics.Vectors" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Xamarin.Forms" Version="4.2.0.709249" />
+    <PackageReference Include="Xamarin.Forms" Version="4.3.0.819712-pre2" />
     <PackageReference Include="Xamarin.Forms.PancakeView">
       <Version>1.2.1</Version>
     </PackageReference>
@@ -130,7 +130,7 @@
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <ItemGroup>
     <ProjectReference Include="..\DrinkGalleryApp\DrinkGalleryApp.csproj">
-      <Project>{05436227-A445-47CC-9D51-C389E84931CF}</Project>
+      <Project>{B5716E25-050F-43FC-AEFE-8C727CF05847}</Project>
       <Name>DrinkGalleryApp</Name>
     </ProjectReference>
   </ItemGroup>

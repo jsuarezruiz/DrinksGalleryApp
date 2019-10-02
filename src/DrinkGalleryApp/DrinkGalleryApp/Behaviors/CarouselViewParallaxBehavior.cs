@@ -20,13 +20,13 @@ namespace DrinkGalleryApp.Behaviors
         protected override void OnAttachedTo(CarouselView bindable)
         {
             base.OnAttachedTo(bindable);
-            bindable.Scrolled += new EventHandler<ItemsViewScrolledEventArgs>(OnScrolled);
+            bindable.Scrolled += OnScrolled;
         }
 
         protected override void OnDetachingFrom(CarouselView bindable)
         {
             base.OnDetachingFrom(bindable);
-            bindable.Scrolled -= new EventHandler<ItemsViewScrolledEventArgs>(OnScrolled);
+            bindable.Scrolled -= OnScrolled;
         }
 
         private void OnScrolled(object sender, ItemsViewScrolledEventArgs e)

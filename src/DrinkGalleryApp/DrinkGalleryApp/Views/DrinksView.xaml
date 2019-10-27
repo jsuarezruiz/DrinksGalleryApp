@@ -67,7 +67,7 @@
                         ParallaxOffset="200"/>
                 </CarouselView.Behaviors>
                 <CarouselView.ItemsLayout>
-                    <ListItemsLayout 
+                    <LinearItemsLayout 
                         Orientation="Horizontal" 
                         SnapPointsAlignment="Center" 
                         SnapPointsType="MandatorySingle" />

@@ -36,7 +36,7 @@ namespace DrinkGalleryApp.Behaviors
             var currentIndex = e.CenterItemIndex;
             var lastIndex = e.LastVisibleItemIndex;
             var layout = carousel.ItemsLayout;
-            var adjust = Device.RuntimePlatform == Device.Android ? 3 : 1;
+            var adjust = Device.RuntimePlatform == Device.Android ? 2.6 : 1;
 
             if (layout is ListItemsLayout listItemsLayout)
             {
@@ -45,7 +45,7 @@ namespace DrinkGalleryApp.Behaviors
                     var carouselWidth = carousel.Width;
                     var offset = (carouselWidth * (currentIndex + 1)) - (e.HorizontalOffset / adjust);
                     var position = (offset * ParallaxOffset / carouselWidth) - ParallaxOffset;
-                    var scale = (offset * 100 / carouselWidth) / 100;
+                    var scale = offset * 100 / carouselWidth / 100;
 
                     var lastItem = carouselItems[lastIndex] as CarouselItem;
                     lastItem.Position = position + ParallaxOffset;

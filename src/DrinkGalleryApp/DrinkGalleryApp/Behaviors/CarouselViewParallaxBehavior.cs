@@ -36,7 +36,7 @@ namespace DrinkGalleryApp.Behaviors
             var currentIndex = e.CenterItemIndex;
             var lastIndex = e.LastVisibleItemIndex;
             var layout = carousel.ItemsLayout;
-            var adjust = Device.RuntimePlatform == Device.Android ? 2.6 : 1;
+            var adjust = 1.0;
 
             if (layout is LinearItemsLayout linearItemsLayout)
             {
@@ -45,12 +45,12 @@ namespace DrinkGalleryApp.Behaviors
                     var carouselWidth = carousel.Width;
                     var offset = (carouselWidth * (currentIndex + 1)) - (e.HorizontalOffset / adjust);
                     var position = (offset * ParallaxOffset / carouselWidth) - ParallaxOffset;
-                    var scale = offset * 100 / carouselWidth / 100;
+                    var scale = offset * 100.0d / carouselWidth / 100.0d;
 
                     var lastItem = carouselItems[lastIndex] as CarouselItem;
                     lastItem.Position = position + ParallaxOffset;
-                    lastItem.Rotation = position / 2;
-                    lastItem.Scale = 1 - scale;
+                    lastItem.Rotation = position / 2.0d;
+                    lastItem.Scale = 1.0d - scale;
 
                     var currentItem = carouselItems[currentIndex] as CarouselItem;
                     currentItem.Position = position;
@@ -61,14 +61,14 @@ namespace DrinkGalleryApp.Behaviors
                 if (linearItemsLayout.Orientation == ItemsLayoutOrientation.Vertical)
                 {
                     var carouselHeight = carousel.Height;
-                    var offset = (carouselHeight * (currentIndex + 1)) - (e.VerticalOffset / adjust);
+                    var offset = (carouselHeight * (double.Parse(currentIndex.ToString()) + 1.0d)) - (e.VerticalOffset / adjust);
                     var position = (offset * ParallaxOffset / carouselHeight) - ParallaxOffset;
-                    var scale = offset * 100 / carouselHeight / 100;
+                    var scale = offset * 100.0d / carouselHeight / 100.0d;
 
                     var lastItem = carouselItems[lastIndex] as CarouselItem;
                     lastItem.Position = position + ParallaxOffset;
-                    lastItem.Rotation = position / 2;
-                    lastItem.Scale = 1 - scale;
+                    lastItem.Rotation = position / 2.0d;
+                    lastItem.Scale = 1.0d - scale;
 
                     var currentItem = carouselItems[currentIndex] as CarouselItem;
                     currentItem.Position = position;
